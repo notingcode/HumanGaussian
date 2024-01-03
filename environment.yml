@@ -1,0 +1,36 @@
+name: human-gaussian
+channels:
+  - pytorch
+  - nvidia
+  - defaults
+  - conda-forge
+
+dependencies:
+  - python=3.8
+  - pytorch=2.0.1=*cuda11.8*
+  - torchvision=0.15.2=*cu118*
+  - torchaudio=2.0.2
+  - pytorch-lightning
+  - accelerate
+  - diffusers
+  - jaxtyping
+  - matplotlib
+  - networkx
+  - ninja
+  - omegaconf
+  - plyfile
+  - seaborn
+  - tensorboard
+  - transformers
+  - trimesh
+  - typeguard
+  - pip
+  - pip:
+    - ./gaussiansplatting/submodules/simple-knn
+    - ./gaussiansplatting/submodules/diff-gaussian-rasterization
+
+    - git+https://github.com/KAIR-BAIR/nerfacc.git@v0.5.2
+    - git+https://github.com/NVlabs/tiny-cuda-nn/#subdirectory=bindings/torch
+    - git+https://github.com/NVlabs/nvdiffrast.git
+
+    - -r requirements.txt
