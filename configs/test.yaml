@@ -1,11 +1,11 @@
 name: "name-of-this-experiment-run"
 tag: "${rmspace:${system.prompt_processor.prompt},_}"
-exp_root_dir: "/path/to/your/save/folder"
+exp_root_dir: "/home/save/"
 seed: 0
  
 data_type: "random-camera-datamodule"
 data:
-  batch_size: 8
+  batch_size: 4
   eval_camera_distance: 2.0
   camera_distance_range: [1.5, 2.0]
   light_sample_strategy: "dreamfusion3dgs"
@@ -36,7 +36,7 @@ system_type: "gaussiandreamer-system"
 system:
   radius: ${data.eval_camera_distance}
   texture_structure_joint: true
-  smplx_path: "/path/to/the/downloaded/smplx_models"
+  smplx_path: "dataset/models"
   disable_hand_densification: false
   pts_num: 100000
   densify_prune_start_step: 300
@@ -57,12 +57,12 @@ system:
     use_perp_neg: false
     pretrained_model_name_or_path: "stabilityai/stable-diffusion-2-base"
     negative_prompt: "shadow, dark face, colorful hands, eyeglass, glasses, (deformed iris, deformed pupils, semi-realistic, cgi, 3d, render, sketch, cartoon, drawing, anime:1.4), text, close up, cropped, out of frame, worst quality, low quality, jpeg artifacts, ugly, duplicate, morbid, mutilated, extra fingers, mutated hands, poorly drawn hands, poorly drawn face, mutation, deformed, blurry, dehydrated, bad anatomy, bad proportions, extra limbs, cloned face, disfigured, gross proportions, malformed limbs, missing arms, missing legs, extra arms, extra legs, fused fingers, too many fingers, long neck"
-    prompt: ???
+    prompt: "???"
 
   guidance_type: "dual-branch-guidance"
   guidance:
     pretrained_model_name_or_path: "stabilityai/stable-diffusion-2-base"
-    model_key: "/path/to/pretrained/texture-structure_joint_model"
+    model_key: "dataset/models/texture_structure_joint"
     vae_key: "stabilityai/sd-vae-ft-mse"
     guidance_scale: 7.5
     weighting_strategy: sds
