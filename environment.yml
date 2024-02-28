@@ -2,14 +2,17 @@ name: human-gaussian
 channels:
   - pytorch
   - nvidia
+  - xformers
   - defaults
   - conda-forge
 
 dependencies:
-  - python=3.8
+  - python=3.10
   - pytorch=2.0.1=*cuda11.8*
   - torchvision=0.15.2=*cu118*
   - torchaudio=2.0.2
+  - pytorch-cuda=11.8
+  - cudatoolkit=11.8
   - pytorch-lightning
   - accelerate
   - diffusers
@@ -20,17 +23,34 @@ dependencies:
   - omegaconf
   - plyfile
   - seaborn
+  - imageio
+  - conda-forge::ffmpeg
+  - imageio-ffmpeg
   - tensorboard
   - transformers
+  - kornia
+  - einops
   - trimesh
+  - wandb
+  - xformers
+  - bitsandbytes
+  - sentencepiece
+  - safetensors
+  - huggingface_hub
+  - gradio
   - typeguard
   - pip
   - pip:
+
+    - -r requirements.txt
+
     - ./gaussiansplatting/submodules/simple-knn
     - ./gaussiansplatting/submodules/diff-gaussian-rasterization
 
+    - git+https://github.com/openai/CLIP.git
+    - git+https://github.com/ashawkey/cubvh
+    - git+https://github.com/ashawkey/envlight.git
     - git+https://github.com/KAIR-BAIR/nerfacc.git@v0.5.2
     - git+https://github.com/NVlabs/tiny-cuda-nn/#subdirectory=bindings/torch
     - git+https://github.com/NVlabs/nvdiffrast.git
-
-    - -r requirements.txt
+    - git+https://github.com/ashawkey/kiuikit
